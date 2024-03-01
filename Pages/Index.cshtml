@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    List<ChartData> Data = new List<ChartData>()
+    {
+        new ChartData { Period = "Jan", Temp = -17.4 },
+        new ChartData { Period = "Feb", Temp = -15.6  },
+        new ChartData { Period = "Mar", Temp = -12.3  },
+        new ChartData { Period = "Apr", Temp = -5.3 },
+        new ChartData { Period = "May", Temp = 1.0 },
+        new ChartData { Period = "Jun", Temp =  6.9  },
+        new ChartData { Period = "Jul", Temp = 9.4 },
+        new ChartData { Period = "Aug", Temp = 7.6 },
+        new ChartData { Period = "Sep", Temp = 2.6 },
+        new ChartData { Period = "Oct", Temp = -4.9},
+        new ChartData { Period = "Nov", Temp = -13.4 },
+        new ChartData { Period = "Dec", Temp = -16.4 },
+    };
+}
+
+<ejs-chart id="chart" title="Weather Statistics">
+    <e-chart-primaryxaxis valueType=Category
+    labelPlacement=OnTicks startAngle=45 coefficient=70></e-chart-primaryxaxis>
+    <e-chart-primaryyaxis minimum="-20" maximum="20" interval="5"
+                          labelFormat="{value}°C"></e-chart-primaryyaxis>
+    <e-chart-tooltipsettings enable=true></e-chart-tooltipsettings>
+    <e-series-collection>
+        <e-series type=Radar drawType=Column dataSource="Data"
+                  xName="Period" yName="Temp">
+                  <e-series-marker visible=true></e-series-marker>
+        </e-series>
+    </e-series-collection>
+</ejs-chart>
+
